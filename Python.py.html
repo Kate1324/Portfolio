@@ -1,0 +1,124 @@
+<html>
+<head>
+<title>Python.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #808080;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+.s4 { color: #cc7832;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Python.py</font>
+</center></td></tr></table>
+<pre><span class="s0"># Для списка реализовать обмен значений соседних элементов.</span>
+<span class="s0"># Значениями обмениваются элементы с индексами 0 и 1, 2 и 3 и т. д.</span>
+<span class="s0"># При нечётном количестве элементов последний сохранить на своём месте.</span>
+<span class="s0"># Для заполнения списка элементов нужно использовать функцию input().#</span>
+
+
+<span class="s1">a = int(input(</span><span class="s2">&quot;Введите количество элементов списка: &quot;</span><span class="s1">))</span>
+<span class="s1">new_list = []</span>
+<span class="s1">i = </span><span class="s3">0</span>
+<span class="s1">el = </span><span class="s3">0</span>
+<span class="s4">while </span><span class="s1">i &lt; a:</span>
+    <span class="s1">new_list.append(input(</span><span class="s2">&quot;Введите следующее значение списка &quot;</span><span class="s1">))</span>
+    <span class="s1">i += </span><span class="s3">1</span>
+<span class="s4">for </span><span class="s1">elem </span><span class="s4">in </span><span class="s1">range(int(len(new_list) / </span><span class="s3">2</span><span class="s1">)):</span>
+    <span class="s1">new_list[el]</span><span class="s4">, </span><span class="s1">new_list[el + </span><span class="s3">1</span><span class="s1">] = new_list[el + </span><span class="s3">1</span><span class="s1">]</span><span class="s4">, </span><span class="s1">new_list[el]</span>
+    <span class="s1">el += </span><span class="s3">2</span>
+<span class="s1">print(new_list)</span>
+
+<span class="s0"># Реализовать структуру «Рейтинг», представляющую собой набор натуральных чисел, который не возрастает.</span>
+<span class="s0"># У пользователя нужно запрашивать новый элемент рейтинга.</span>
+<span class="s0"># Если в рейтинге существуют элементы с одинаковыми значениями,</span>
+<span class="s0"># то новый элемент с тем же значением должен разместиться после них.#</span>
+
+
+<span class="s1">my_list = [</span><span class="s3">7</span><span class="s4">, </span><span class="s3">5</span><span class="s4">, </span><span class="s3">3</span><span class="s4">, </span><span class="s3">3</span><span class="s4">, </span><span class="s3">2</span><span class="s1">]</span>
+<span class="s1">print(</span><span class="s2">f&quot;Рейтинг - </span><span class="s4">{</span><span class="s1">my_list</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+<span class="s1">number = int(input(</span><span class="s2">&quot;Введите число: &quot;</span><span class="s1">))</span>
+<span class="s4">for </span><span class="s1">el </span><span class="s4">in </span><span class="s1">range(len(my_list)):</span>
+    <span class="s4">if </span><span class="s1">my_list[el] == number:</span>
+        <span class="s1">my_list.insert(el + </span><span class="s3">1</span><span class="s4">, </span><span class="s1">number)</span>
+        <span class="s4">break</span>
+    <span class="s4">elif </span><span class="s1">my_list[</span><span class="s3">0</span><span class="s1">] &lt; number:</span>
+        <span class="s1">my_list.insert(</span><span class="s3">0</span><span class="s4">, </span><span class="s1">number)</span>
+    <span class="s4">elif </span><span class="s1">my_list[-</span><span class="s3">1</span><span class="s1">] &gt; number:</span>
+        <span class="s1">my_list.append(number)</span>
+    <span class="s4">elif </span><span class="s1">my_list[el] &gt; number </span><span class="s4">and </span><span class="s1">my_list[el + </span><span class="s3">1</span><span class="s1">] &lt; number:</span>
+        <span class="s1">my_list.insert(el + </span><span class="s3">1</span><span class="s4">, </span><span class="s1">number)</span>
+<span class="s1">print(</span><span class="s2">f&quot;Результат: </span><span class="s4">{</span><span class="s1">my_list</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+
+<span class="s0"># Реализовать функцию my_func(), которая принимает три позиционных аргумента</span>
+<span class="s0"># и возвращает сумму наибольших двух аргументов.#</span>
+
+
+<span class="s4">def </span><span class="s1">my_func(arg1</span><span class="s4">, </span><span class="s1">arg2</span><span class="s4">, </span><span class="s1">arg3):</span>
+    <span class="s4">if </span><span class="s1">arg1 &gt;= arg3 </span><span class="s4">and </span><span class="s1">arg2 &gt;= arg3:</span>
+        <span class="s4">return </span><span class="s1">arg1 + arg2</span>
+    <span class="s4">elif </span><span class="s1">arg1 &gt; arg2 </span><span class="s4">and </span><span class="s1">arg1 &lt; arg3:</span>
+        <span class="s4">return </span><span class="s1">arg1 + arg3</span>
+    <span class="s4">else</span><span class="s1">:</span>
+        <span class="s4">return </span><span class="s1">arg2 + arg3</span>
+
+
+<span class="s1">print(</span>
+    <span class="s2">f'Result - </span><span class="s4">{</span><span class="s1">my_func(int(input(</span><span class="s2">&quot;Введите первое число: &quot;</span><span class="s1">))</span><span class="s4">, </span><span class="s1">int(input(</span><span class="s2">&quot;Введите второе число: &quot;</span><span class="s1">))</span><span class="s4">, </span><span class="s1">int(input(</span><span class="s2">&quot;Введите третье число: &quot;</span><span class="s1">)))</span><span class="s4">}</span><span class="s2">'</span><span class="s1">)</span>
+
+<span class="s0"># Программа запрашивает у пользователя строку чисел, разделённых пробелом.</span>
+<span class="s0"># При нажатии Enter должна выводиться сумма чисел.</span>
+<span class="s0"># Пользователь может продолжить ввод чисел, разделённых пробелом и снова нажать Enter.</span>
+<span class="s0"># Сумма вновь введённых чисел будет добавляться к уже подсчитанной сумме.</span>
+<span class="s0"># Но если вместо числа вводится специальный символ, выполнение программы завершается.</span>
+<span class="s0"># Если специальный символ введён после нескольких чисел, то вначале нужно</span>
+<span class="s0"># добавить сумму этих чисел к полученной ранее сумме и после этого завершить программу.#</span>
+
+
+<span class="s4">def </span><span class="s1">new_sum():</span>
+    <span class="s1">sum_res = </span><span class="s3">0</span>
+    <span class="s1">number = input(</span><span class="s2">&quot;Введите несколько чисел через пробел: &quot;</span><span class="s1">).split()</span>
+
+    <span class="s1">res = </span><span class="s3">0</span>
+    <span class="s4">for </span><span class="s1">el </span><span class="s4">in </span><span class="s1">range(len(number)):</span>
+        <span class="s1">res = res + int(number[el])</span>
+    <span class="s1">sum_res = sum_res + res</span>
+    <span class="s1">print(</span><span class="s2">f&quot;Текущая сумма равна: </span><span class="s4">{</span><span class="s1">sum_res</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+
+
+<span class="s1">new_sum()</span>
+
+<span class="s0"># Реализовать скрипт, в котором должна быть предусмотрена функция расчёта заработной платы сотрудника.</span>
+<span class="s0"># Используйте в нём формулу: (выработка в часах*ставка в час) + премия.</span>
+<span class="s0"># Во время выполнения расчёта для конкретных значений необходимо запускать скрипт с параметрами.#</span>
+
+
+<span class="s4">def </span><span class="s1">sal():</span>
+    <span class="s4">try</span><span class="s1">:</span>
+        <span class="s1">time = float(input(</span><span class="s2">'Введите выработку в часах: '</span><span class="s1">))</span>
+        <span class="s1">salary = int(input(</span><span class="s2">'Введите ставку в у.е.: '</span><span class="s1">))</span>
+        <span class="s1">bonus = int(input(</span><span class="s2">'Введите премию в у.е.: '</span><span class="s1">))</span>
+        <span class="s1">res = time * salary + bonus</span>
+        <span class="s1">print(</span><span class="s2">f'Заработная плата сотрудника равна:  </span><span class="s4">{</span><span class="s1">res</span><span class="s4">}</span><span class="s2">'</span><span class="s1">)</span>
+    <span class="s4">except </span><span class="s1">ValueError:</span>
+        <span class="s4">return </span><span class="s1">print(</span><span class="s2">'Not a number'</span><span class="s1">)</span>
+
+
+<span class="s1">sal()</span>
+
+<span class="s0"># Представлен список чисел. Необходимо вывести элементы исходного списка,</span>
+<span class="s0"># значения которых больше предыдущего элемента.#</span>
+
+
+<span class="s1">first_list = [</span><span class="s3">20</span><span class="s4">, </span><span class="s3">4</span><span class="s4">, </span><span class="s3">17</span><span class="s4">, </span><span class="s3">5</span><span class="s4">, </span><span class="s3">44</span><span class="s4">, </span><span class="s3">45</span><span class="s4">, </span><span class="s3">8</span><span class="s4">, </span><span class="s3">7</span><span class="s1">]</span>
+<span class="s1">new_list = [el </span><span class="s4">for </span><span class="s1">num</span><span class="s4">, </span><span class="s1">el </span><span class="s4">in </span><span class="s1">enumerate(first_list) </span><span class="s4">if </span><span class="s1">first_list[num - </span><span class="s3">1</span><span class="s1">] &lt; first_list[num]]</span>
+<span class="s1">print(</span><span class="s2">f'Исходный список </span><span class="s4">{</span><span class="s1">first_list</span><span class="s4">}</span><span class="s2">'</span><span class="s1">)</span>
+<span class="s1">print(</span><span class="s2">f'Новый список </span><span class="s4">{</span><span class="s1">new_list</span><span class="s4">}</span><span class="s2">'</span><span class="s1">)</span>
+</pre>
+</body>
+</html>
